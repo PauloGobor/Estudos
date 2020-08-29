@@ -1,0 +1,22 @@
+		},
+		_onRoute: function (evt) {
+			var oArgs = evt.getParameter("arguments"); //jogamntdo os argumenos do route( todos os paramentros )
+			var oView = this.getView();
+
+			var sURL = "/EkkoSet(" + oArgs.Ebeln + ")";
+			oView.bindElement({
+				path: sURL, //qual a entidade que vou fazer a chamada.(caminho)
+		//		parameters: {
+			//		expand: "HeadToDetailsNav" // pega as informacoes da categoria que pertence aquele produto
+				//},
+				events: {
+					dataRequested: function () {
+						oView.setBusy(true);
+					},
+					dataReceived: function () {
+						oView.setBusy(false);
+					}
+				}
+			});
+		
+		},
